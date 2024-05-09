@@ -4,15 +4,13 @@
 
 from random import randint
 
+# lista de registros
+
+registros = []
+
 # area das funçoes
 
-def dev():
-    c = randint(1,100)
-
-    if c > 1:
-        return True
-    elif c == 1:
-        return False
+#def para pessoa
 
 def nascimento():
     dia = randint(1,30)
@@ -20,6 +18,28 @@ def nascimento():
     ano = randint(1960, 2005)
 
     return dia + '/' + mes + '/' + ano
+
+def nomes(g):
+    alet = randint(1,50)
+    
+    if g == 'M':
+        return nomes_masculinos[alet - 1]
+    elif g == 'F':
+        return nomes_femininos[alet - 1]
+
+def sobrenomes():
+    alet = randint(1,100)
+    return list_sobrenomes[alet - 1]
+    
+def sexo():
+    alet = randint(1,2)
+    
+    if alet == 1:
+        return genero[alet - 1]
+    elif alet == 2:
+        return genero[alet - 1]
+
+#def para produtos
 
 def produtos(c):
     alet = randint(1,10)
@@ -45,25 +65,89 @@ def categorias():
     elif c == 4:
         return jardinagem
 
-def nomes(g):
-    alet = randint(1,50)
-    
-    if g == 'M':
-        return nomes_masculinos[alet - 1]
-    elif g == 'F':
-        return nomes_femininos[alet - 1]
+def precos(p):
+    if p == 'Smartphone':
+        return 3600
+    elif p == 'Notebook':
+        return 4300
+    elif p == 'Tablet':
+        return 1200
+    elif p == 'Smartwatch':
+        return 800
+    elif p == 'Fone de ouvido sem fio':
+        return 200
+    elif p == 'Câmera digital':
+        return 1000
+    elif p == 'Televisão':
+        return 2500
+    elif p == 'Console de videogame':
+        return 2000
+    elif p == 'Impressora':
+        return 400
+    elif p == 'Roteador Wi-Fi':
+        return 100
+    elif p == 'Escova de dentes':
+        return 5
+    elif p == 'Pasta de dentes':
+        return 3
+    elif p == 'Enxaguante bucal':
+        return 8
+    elif p == 'Fio dental':
+        return 2
+    elif p == 'Sabonete':
+        return 2
+    elif p == 'Shampoo':
+        return 10
+    elif p == 'Condicionador':
+        return 12
+    elif p == 'Desodorante':
+        return 8
+    elif p == 'Papel higiênico':
+        return 6
+    elif p == 'Hidratante corporal':
+        return 15
+    elif p == 'Sofá':
+        return 1500
+    elif p == 'Cama':
+        return 1200
+    elif p == 'Mesa de jantar':
+        return 800
+    elif p == 'Cadeira':
+        return 100
+    elif p == 'Guarda-roupa':
+        return 600
+    elif p == 'Escrivaninha':
+        return 300
+    elif p == 'Cômoda':
+        return 400
+    elif p == 'Rack':
+        return 500
+    elif p == 'Poltrona':
+        return 700
+    elif p == 'Mesa de centro':
+        return 200
+    elif p == 'Pá de jardim':
+        return 20
+    elif p == 'Ancinho':
+        return 15
+    elif p == 'Tesoura de poda':
+        return 25
+    elif p == 'Regador':
+        return 30
+    elif p == 'Luvas de jardinagem':
+        return 10
+    elif p == 'Vasos':
+        return 5
+    elif p == 'Fertilizante':
+        return 8
+    elif p == 'Terra vegetal':
+        return 10
+    elif p == 'Tela de sombreamento':
+        return 20
+    elif p == 'Triturador de galhos':
+        return 200
 
-def sobrenomes():
-    alet = randint(1,100)
-    return list_sobrenomes[alet - 1]
-    
-def sexo():
-    alet = randint(1,2)
-    
-    if alet == 1:
-        return genero[alet - 1]
-    elif alet == 2:
-        return genero[alet - 1]
+# def loja
 
 def vendedores(v):
     alet = randint(1,5)
@@ -85,6 +169,8 @@ def lojas():
     alet = randint(1,6)
     return list_lojas[alet - 1]
 
+# def pagamento
+
 def x(h):
     if h == 'Credito':
         return randint(1,12)
@@ -101,11 +187,47 @@ def pagamentos():
     elif alet == 3:
         return list_pagamento[alet - 1]
 
+# def controles
+
+def dev():
+    c = randint(1,100)
+
+    if c > 1:
+        return True
+    elif c == 1:
+        return False
+
 def compra():
     dia = randint(1,30)
     mes = randint(1,12)
 
     return dia + '/' + mes + '/2023'
+
+# funçao gerar planilha
+
+def gerar():
+    #pessoa
+    nome = nomes(genero)
+    sobrenome = sobrenomes()
+    ultimo_nome = sobrenomes()
+    idade = nascimento()
+    genero = sexo()
+    #loja
+    loja = lojas()
+    vendedor = vendedores(loja)
+    #produto
+    categoria = categorias()
+    produto = produtos(categoria)
+    quantidade = randint(1,6)
+    preco = precos(produto)
+    #pagamento
+    pagamento = pagamentos()
+    vezes = x(pagamento)
+    #controle
+    data = compra()
+    devolucao = dev()
+
+    
 
 # area das listas
 
@@ -196,19 +318,3 @@ list_pagamento = [
 ]
 
 # codigo
-
-categoria = categorias()
-produto = produtos(categoria) 
-devolucao = dev()
-idade = nascimento()
-genero = sexo()
-nome = nomes(genero)
-sobrenome = sobrenomes()
-ultimo_nome = sobrenomes()
-loja = lojas()
-vendedor = vendedores(loja)
-pagamento = pagamentos()
-vezes = x(pagamento)
-data = compra()
-quantidade = randint(1,6)
-preco = 
