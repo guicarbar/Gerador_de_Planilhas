@@ -2,7 +2,7 @@
 
 # PPOP_P_V2 :fire: :fire:
 
-É a versão tualizada do PPO_P.
+É a versão atualizada do PPO_P.
 
 Achaba o preojeto PPO_P muito simples, com poucos dados para ser explorado em PowerBI e sabia que poderia fazer melhor...
 Então eu fiz.
