@@ -3,11 +3,8 @@
 # area dos imports
 
 from random import randint
-
-# lista de registros
-
-registros = []
-
+import pandas as pd
+import openpyxl as op
 # area das funçoes
 
 #def para pessoa
@@ -227,7 +224,7 @@ def gerar():
     data = compra()
     devolucao = dev()
 
-    
+    return nome, sobrenome, ultimo_nome, idade, genero, loja, vendedor, categoria, produto, quantidade, preco, pagamento, vezes, data, devolucao
 
 # area das listas
 
@@ -318,3 +315,45 @@ list_pagamento = [
 ]
 
 # codigo
+
+dados = []
+
+print('Quantos registros você quer adicionar na planilha?')
+qtd = input().str()
+
+for r in range(1, qtd):
+    registros = gerar()
+    dados.append(registros)
+
+print(dados)
+
+# trasnformar em um dataframe
+
+df = pd.DataFrame(dados, columns=['Nome', 'Sobrenome', 'Ultimo nome', 'Data nascimento', 'Genero', 'Loja', 'Vendedor', 'Categoria', 'Produto', 'Quantidade', 'Preço', 'Pagamento', 'Vezes', 'Data de compra', 'Devolução'])
+
+print(df)
+
+book = op.load_workbook('Vendas_2023.xlsx')
+
+book_sheet = book['vendas']
+
+linha = book_sheet.max_row + 1
+
+for index, row in df.iterrows():
+    book_sheet.cell(row = linha index, column= 1).value = row['Nome']
+    book_sheet.cell(row = linha index, column= 2).value = row['Sobrenome']
+    book_sheet.cell(row = linha index, column= 3).value = row['Ultimo nome']
+    book_sheet.cell(row = linha index, column= 4).value = row['Data nascimento']
+    book_sheet.cell(row = linha index, column= 5).value = row['Genero']
+    book_sheet.cell(row = linha index, column= 6).value = row['Loja']
+    book_sheet.cell(row = linha index, column= 7).value = row['Vendedor']
+    book_sheet.cell(row = linha index, column= 8).value = row['Categoria']
+    book_sheet.cell(row = linha index, column= 9).value = row['Produto']
+    book_sheet.cell(row = linha index, column= 10).value = row['Quantidade']
+    book_sheet.cell(row = linha index, column= 11).value = row['Preço']
+    book_sheet.cell(row = linha index, column= 12).value = row['Pagamento']
+    book_sheet.cell(row = linha index, column= 13).value = row['Vezes']
+    book_sheet.cell(row = linha index, column= 14).value = row['Data de compra']
+    book_sheet.cell(row = linha index, column= 15).value = row['Devolução']
+
+book.save('Vendas_2023.xlsx')
