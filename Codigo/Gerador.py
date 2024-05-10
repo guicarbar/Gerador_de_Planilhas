@@ -14,7 +14,7 @@ def nascimento():
     mes = randint(1,12)
     ano = randint(1960, 2005)
 
-    return dia + '/' + mes + '/' + ano
+    return str(dia) + '/' + str(mes) + '/' + str(ano)
 
 def nomes(g):
     alet = randint(1,50)
@@ -172,7 +172,7 @@ def x(h):
     if h == 'Credito':
         return randint(1,12)
     else:
-        return 0 
+        return 1 
 
 def pagamentos():
     alet = randint(1,3)
@@ -198,17 +198,17 @@ def compra():
     dia = randint(1,30)
     mes = randint(1,12)
 
-    return dia + '/' + mes + '/2023'
+    return str(dia) + '/' + str(mes) + '/2023'
 
 # funçao gerar planilha
 
 def gerar():
     #pessoa
+    genero = sexo()
     nome = nomes(genero)
     sobrenome = sobrenomes()
     ultimo_nome = sobrenomes()
     idade = nascimento()
-    genero = sexo()
     #loja
     loja = lojas()
     vendedor = vendedores(loja)
@@ -319,9 +319,9 @@ list_pagamento = [
 dados = []
 
 print('Quantos registros você quer adicionar na planilha?')
-qtd = input().str()
+qtd = int(input())
 
-for r in range(1, qtd):
+for r in range(1, qtd + 1):
     registros = gerar()
     dados.append(registros)
 
