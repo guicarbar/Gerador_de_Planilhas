@@ -1,10 +1,10 @@
 🟢 🟡 🔴
 
-# PPOP_P_V2 :fire: :fire:
+# Gerador de planilhas versão 2 :fire: :fire:
 
-É a versão atualizada do PPO_P.
+É a versão atualizada do Gerador de planilhas.
 
-Achaba o preojeto PPO_P muito simples, com poucos dados para ser explorado em PowerBI e sabia que poderia fazer melhor...
+Achaba o preojeto Gerador de planilhas muito simples, com poucos dados para ser explorado em PowerBI e sabia que poderia fazer melhor...
 Então eu fiz.
 
 Alem de criar uma mais colunas com mais informaçoes a serem exploradas, simplifiquei o codigo antigo e deixei o arquivo do codigo disponivel tanto em .py como em notebook do Jupyter.
